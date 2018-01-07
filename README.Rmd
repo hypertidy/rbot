@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 # rbot
 
-The goal of rbot is to provide a **bag of tables** object for R. This is a simple generalization
+The goal of rbot is to provide a **bag of tables** object for R (i.e. a *database*). This is a simple generalization
 of the two-table mechanism used by tidygraph. 
 
 ## Installation

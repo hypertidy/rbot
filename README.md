@@ -3,7 +3,7 @@
 rbot
 ====
 
-The goal of rbot is to provide a **bag of tables** object for R. This is a simple generalization of the two-table mechanism used by tidygraph.
+The goal of rbot is to provide a **bag of tables** object for R (i.e. a *database*). This is a simple generalization of the two-table mechanism used by tidygraph.
 
 Installation
 ------------
@@ -58,8 +58,8 @@ bot(path)
 #> # A tibble: 2 x 2
 #>       a object_ 
 #> * <int> <chr>   
-#> 1     1 07e852da
-#> 2     2 9223b492
+#> 1     1 886dbcf5
+#> 2     2 1a32888f
 
 library(dplyr)
 #> 
@@ -80,7 +80,7 @@ bot(path) %>% dplyr::filter(a == 1)
 #> # A tibble: 1 x 2
 #>       a object_ 
 #>   <int> <chr>   
-#> 1     1 07e852da
+#> 1     1 886dbcf5
 
 ## (well, we can't do this properly on any old table yet ...)
 bot(path) %>% activate("vertex") %>% dplyr::filter(x_ > 0.5)
@@ -92,6 +92,6 @@ bot(path) %>% activate("vertex") %>% dplyr::filter(x_ > 0.5)
 #> # A tibble: 2 x 2
 #>       a object_ 
 #> * <int> <chr>   
-#> 1     1 07e852da
-#> 2     2 9223b492
+#> 1     1 886dbcf5
+#> 2     2 1a32888f
 ```
