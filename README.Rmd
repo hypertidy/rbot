@@ -29,7 +29,7 @@ devtools::install_github("hypertidy/rbot")
 
 ## Example
 
-This is a basic example, specifically for use by the silicate workflow. 
+This is a basic example, creating a meaningless bot. 
 
 (Currently also relies on `anglr`). 
 
@@ -38,6 +38,11 @@ library(rbot)
 ## a meaningless bot
 bot(list(iris = iris, mtcars = mtcars))
 
+```
+
+rbot was designed specifically for use by the silicate workflow. 
+
+```{r silicate}
 ## more meaningful, rbot was designed to deal with silicate's relatable tables
 library(silicate)
 path <- silicate::PATH(minimal_mesh)

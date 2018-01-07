@@ -18,7 +18,7 @@ devtools::install_github("hypertidy/rbot")
 Example
 -------
 
-This is a basic example, specifically for use by the silicate workflow.
+This is a basic example, creating a meaningless bot.
 
 (Currently also relies on `anglr`).
 
@@ -64,7 +64,11 @@ bot(list(iris = iris, mtcars = mtcars))
 #> [1] "iris"   "mtcars"
 #> attr(,"active")
 #> [1] "iris"
+```
 
+rbot was designed specifically for use by the silicate workflow.
+
+``` r
 ## more meaningful, rbot was designed to deal with silicate's relatable tables
 library(silicate)
 path <- silicate::PATH(minimal_mesh)
@@ -73,59 +77,59 @@ bot(path)
 #> # A tibble: 2 x 2
 #>       a object_ 
 #> * <int> <chr>   
-#> 1     1 83453eaf
-#> 2     2 4f9bff5c
+#> 1     1 b9265fe4
+#> 2     2 a10ca245
 #> 
 #> $path
 #> # A tibble: 3 x 7
 #>    ncol type         subobject object object_  path_    ncoords_
 #>   <int> <chr>            <int>  <int> <chr>    <chr>       <int>
-#> 1     2 MULTIPOLYGON         1      1 83453eaf f842c1fa        8
-#> 2     2 MULTIPOLYGON         1      1 83453eaf cdcf6878        6
-#> 3     2 MULTIPOLYGON         1      2 4f9bff5c e493cfed        5
+#> 1     2 MULTIPOLYGON         1      1 b9265fe4 cb63a3bd        8
+#> 2     2 MULTIPOLYGON         1      1 b9265fe4 67ca701e        6
+#> 3     2 MULTIPOLYGON         1      2 a10ca245 53565320        5
 #> 
 #> $path_link_vertex
 #> # A tibble: 19 x 2
 #>    path_    vertex_ 
 #>    <chr>    <chr>   
-#>  1 f842c1fa 0dbc5ec5
-#>  2 f842c1fa 822a6313
-#>  3 f842c1fa 98e390b9
-#>  4 f842c1fa 93ee2965
-#>  5 f842c1fa 291d3693
-#>  6 f842c1fa 65491787
-#>  7 f842c1fa 7024e338
-#>  8 f842c1fa 0dbc5ec5
-#>  9 cdcf6878 8e705fe3
-#> 10 cdcf6878 a1e4188a
-#> 11 cdcf6878 978d867c
-#> 12 cdcf6878 91060813
-#> 13 cdcf6878 0eaf5b52
-#> 14 cdcf6878 8e705fe3
-#> 15 e493cfed 7024e338
-#> 16 e493cfed 65491787
-#> 17 e493cfed 71dd819a
-#> 18 e493cfed 99791167
-#> 19 e493cfed 7024e338
+#>  1 cb63a3bd 6dffd731
+#>  2 cb63a3bd bb1105a5
+#>  3 cb63a3bd 053e6cde
+#>  4 cb63a3bd bc16716a
+#>  5 cb63a3bd 0e278806
+#>  6 cb63a3bd 42a9a0bd
+#>  7 cb63a3bd 4fdd5856
+#>  8 cb63a3bd 6dffd731
+#>  9 67ca701e 89e3eb4b
+#> 10 67ca701e 874a7547
+#> 11 67ca701e 27c9c321
+#> 12 67ca701e 617a9418
+#> 13 67ca701e f5af0625
+#> 14 67ca701e 89e3eb4b
+#> 15 53565320 4fdd5856
+#> 16 53565320 42a9a0bd
+#> 17 53565320 4377d923
+#> 18 53565320 cdeb3cc4
+#> 19 53565320 4fdd5856
 #> 
 #> $vertex
 #> # A tibble: 14 x 3
 #>       x_    y_ vertex_ 
 #>    <dbl> <dbl> <chr>   
-#>  1 0     0     0dbc5ec5
-#>  2 0     1.00  822a6313
-#>  3 0.750 1.00  98e390b9
-#>  4 1.00  0.800 93ee2965
-#>  5 0.500 0.700 291d3693
-#>  6 0.800 0.600 65491787
-#>  7 0.690 0     7024e338
-#>  8 0.200 0.200 8e705fe3
-#>  9 0.500 0.200 a1e4188a
-#> 10 0.500 0.400 978d867c
-#> 11 0.300 0.600 91060813
-#> 12 0.200 0.400 0eaf5b52
-#> 13 1.10  0.630 71dd819a
-#> 14 1.23  0.300 99791167
+#>  1 0     0     6dffd731
+#>  2 0     1.00  bb1105a5
+#>  3 0.750 1.00  053e6cde
+#>  4 1.00  0.800 bc16716a
+#>  5 0.500 0.700 0e278806
+#>  6 0.800 0.600 42a9a0bd
+#>  7 0.690 0     4fdd5856
+#>  8 0.200 0.200 89e3eb4b
+#>  9 0.500 0.200 874a7547
+#> 10 0.500 0.400 27c9c321
+#> 11 0.300 0.600 617a9418
+#> 12 0.200 0.400 f5af0625
+#> 13 1.10  0.630 4377d923
+#> 14 1.23  0.300 cdeb3cc4
 #> 
 #> attr(,"class")
 #> [1] "bot"
@@ -142,50 +146,50 @@ bot(path) %>% dplyr::filter(a == 1)
 #> # A tibble: 1 x 2
 #>       a object_ 
 #>   <int> <chr>   
-#> 1     1 83453eaf
+#> 1     1 b9265fe4
 #> 
 #> $path
 #> # A tibble: 2 x 7
 #>    ncol type         subobject object object_  path_    ncoords_
 #>   <int> <chr>            <int>  <int> <chr>    <chr>       <int>
-#> 1     2 MULTIPOLYGON         1      1 83453eaf f842c1fa        8
-#> 2     2 MULTIPOLYGON         1      1 83453eaf cdcf6878        6
+#> 1     2 MULTIPOLYGON         1      1 b9265fe4 cb63a3bd        8
+#> 2     2 MULTIPOLYGON         1      1 b9265fe4 67ca701e        6
 #> 
 #> $path_link_vertex
 #> # A tibble: 14 x 2
 #>    path_    vertex_ 
 #>    <chr>    <chr>   
-#>  1 f842c1fa 0dbc5ec5
-#>  2 f842c1fa 822a6313
-#>  3 f842c1fa 98e390b9
-#>  4 f842c1fa 93ee2965
-#>  5 f842c1fa 291d3693
-#>  6 f842c1fa 65491787
-#>  7 f842c1fa 7024e338
-#>  8 f842c1fa 0dbc5ec5
-#>  9 cdcf6878 8e705fe3
-#> 10 cdcf6878 a1e4188a
-#> 11 cdcf6878 978d867c
-#> 12 cdcf6878 91060813
-#> 13 cdcf6878 0eaf5b52
-#> 14 cdcf6878 8e705fe3
+#>  1 cb63a3bd 6dffd731
+#>  2 cb63a3bd bb1105a5
+#>  3 cb63a3bd 053e6cde
+#>  4 cb63a3bd bc16716a
+#>  5 cb63a3bd 0e278806
+#>  6 cb63a3bd 42a9a0bd
+#>  7 cb63a3bd 4fdd5856
+#>  8 cb63a3bd 6dffd731
+#>  9 67ca701e 89e3eb4b
+#> 10 67ca701e 874a7547
+#> 11 67ca701e 27c9c321
+#> 12 67ca701e 617a9418
+#> 13 67ca701e f5af0625
+#> 14 67ca701e 89e3eb4b
 #> 
 #> $vertex
 #> # A tibble: 12 x 3
 #>       x_    y_ vertex_ 
 #>    <dbl> <dbl> <chr>   
-#>  1 0     0     0dbc5ec5
-#>  2 0     1.00  822a6313
-#>  3 0.750 1.00  98e390b9
-#>  4 1.00  0.800 93ee2965
-#>  5 0.500 0.700 291d3693
-#>  6 0.800 0.600 65491787
-#>  7 0.690 0     7024e338
-#>  8 0.200 0.200 8e705fe3
-#>  9 0.500 0.200 a1e4188a
-#> 10 0.500 0.400 978d867c
-#> 11 0.300 0.600 91060813
-#> 12 0.200 0.400 0eaf5b52
+#>  1 0     0     6dffd731
+#>  2 0     1.00  bb1105a5
+#>  3 0.750 1.00  053e6cde
+#>  4 1.00  0.800 bc16716a
+#>  5 0.500 0.700 0e278806
+#>  6 0.800 0.600 42a9a0bd
+#>  7 0.690 0     4fdd5856
+#>  8 0.200 0.200 89e3eb4b
+#>  9 0.500 0.200 874a7547
+#> 10 0.500 0.400 27c9c321
+#> 11 0.300 0.600 617a9418
+#> 12 0.200 0.400 f5af0625
 #> 
 #> attr(,"class")
 #> [1] "bot"
@@ -201,51 +205,51 @@ bot(path) %>% activate("vertex") %>% dplyr::filter(x_ > 0.5)
 #> # A tibble: 2 x 2
 #>       a object_ 
 #> * <int> <chr>   
-#> 1     1 83453eaf
-#> 2     2 4f9bff5c
+#> 1     1 b9265fe4
+#> 2     2 a10ca245
 #> 
 #> $path
 #> # A tibble: 3 x 7
 #>    ncol type         subobject object object_  path_    ncoords_
 #>   <int> <chr>            <int>  <int> <chr>    <chr>       <int>
-#> 1     2 MULTIPOLYGON         1      1 83453eaf f842c1fa        8
-#> 2     2 MULTIPOLYGON         1      1 83453eaf cdcf6878        6
-#> 3     2 MULTIPOLYGON         1      2 4f9bff5c e493cfed        5
+#> 1     2 MULTIPOLYGON         1      1 b9265fe4 cb63a3bd        8
+#> 2     2 MULTIPOLYGON         1      1 b9265fe4 67ca701e        6
+#> 3     2 MULTIPOLYGON         1      2 a10ca245 53565320        5
 #> 
 #> $path_link_vertex
 #> # A tibble: 19 x 2
 #>    path_    vertex_ 
 #>    <chr>    <chr>   
-#>  1 f842c1fa 0dbc5ec5
-#>  2 f842c1fa 822a6313
-#>  3 f842c1fa 98e390b9
-#>  4 f842c1fa 93ee2965
-#>  5 f842c1fa 291d3693
-#>  6 f842c1fa 65491787
-#>  7 f842c1fa 7024e338
-#>  8 f842c1fa 0dbc5ec5
-#>  9 cdcf6878 8e705fe3
-#> 10 cdcf6878 a1e4188a
-#> 11 cdcf6878 978d867c
-#> 12 cdcf6878 91060813
-#> 13 cdcf6878 0eaf5b52
-#> 14 cdcf6878 8e705fe3
-#> 15 e493cfed 7024e338
-#> 16 e493cfed 65491787
-#> 17 e493cfed 71dd819a
-#> 18 e493cfed 99791167
-#> 19 e493cfed 7024e338
+#>  1 cb63a3bd 6dffd731
+#>  2 cb63a3bd bb1105a5
+#>  3 cb63a3bd 053e6cde
+#>  4 cb63a3bd bc16716a
+#>  5 cb63a3bd 0e278806
+#>  6 cb63a3bd 42a9a0bd
+#>  7 cb63a3bd 4fdd5856
+#>  8 cb63a3bd 6dffd731
+#>  9 67ca701e 89e3eb4b
+#> 10 67ca701e 874a7547
+#> 11 67ca701e 27c9c321
+#> 12 67ca701e 617a9418
+#> 13 67ca701e f5af0625
+#> 14 67ca701e 89e3eb4b
+#> 15 53565320 4fdd5856
+#> 16 53565320 42a9a0bd
+#> 17 53565320 4377d923
+#> 18 53565320 cdeb3cc4
+#> 19 53565320 4fdd5856
 #> 
 #> $vertex
 #> # A tibble: 6 x 3
 #>      x_    y_ vertex_ 
 #>   <dbl> <dbl> <chr>   
-#> 1 0.750 1.00  98e390b9
-#> 2 1.00  0.800 93ee2965
-#> 3 0.800 0.600 65491787
-#> 4 0.690 0     7024e338
-#> 5 1.10  0.630 71dd819a
-#> 6 1.23  0.300 99791167
+#> 1 0.750 1.00  053e6cde
+#> 2 1.00  0.800 bc16716a
+#> 3 0.800 0.600 42a9a0bd
+#> 4 0.690 0     4fdd5856
+#> 5 1.10  0.630 4377d923
+#> 6 1.23  0.300 cdeb3cc4
 #> 
 #> attr(,"class")
 #> [1] "bot"
