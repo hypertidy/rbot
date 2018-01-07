@@ -1,0 +1,52 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# rbot
+
+The goal of rbot is to provide a **bag of tables** object for R. This is a simple generalization
+of the two-table mechanism used by tidygraph. 
+
+## Installation
+
+You can install rbot from GitHub with:
+
+```{r gh-installation, eval = FALSE}
+# install.packages("devtools")
+devtools::install_github("hypertidy/rbot")
+```
+
+## Example
+
+This is a basic example, specifically for use by the silicate workflow. 
+
+(Currently also relies on `anglr`). 
+
+```{r example}
+library(rbot)
+## a meaningless bot
+bot(list(iris = iris, mtcars = mtcars))
+
+## more meaningful, rbot was designed to deal with silicate's relatable tables
+library(silicate)
+path <- silicate::PATH(minimal_mesh)
+bot(path)
+
+library(dplyr)
+## we can filter a table and propagate across the other tables
+bot(path) %>% dplyr::filter(a == 1)
+
+## (well, we can't do this properly on any old table yet ...)
+bot(path) %>% activate("vertex") %>% dplyr::filter(x_ > 0.5)
+
+```

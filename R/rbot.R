@@ -4,7 +4,12 @@ activate <- function(.data, what) {
 #' @export
 #' @importFrom rlang enquo quo_text
 activate.bot <- function(.data, what) {
-  active(.data) <- rlang::quo_text(rlang::enquo(what))
+  if (is.character(what)) {
+    active(.data) <- what
+
+  } else {
+    active(.data) <- rlang::quo_text(rlang::enquo(what))
+  }
   .data
 }
 
@@ -16,7 +21,7 @@ active <- function(x) {
 }
 `active<-` <- function(x, value) {
   value <- gsub('"', '', value)
-  if (!value %in% names(x)) stop(sprintf("'%s' does not exist"))
+  if (!value %in% names(x)) stop(sprintf("'%s' does not exist", value))
   attr(x, 'active') <- value
   x
 }
@@ -26,19 +31,21 @@ bot <- function(x, ...) {
 }
 
 bot.default <- function(x, ...) {
+  nms <- names(x)
+  if (length(nms) < 1 | any(nchar(nms) < 1L)) stop("all list items must be named")
   ## strip attributes
-  x <- lapply(x, identity)
-  out <- structure(x, class = "bot", jramp = names(x))
-  activate(out, "object")
+  x <- lapply(x, tibble::as_tibble)
+  out <- structure(x, class = "bot", jramp = nms)
+  activate(out, nms[1])
 }
 bot.PATH <- function(x, ...) {
   bot(x[attr(x, "join_ramp")])
 }
 print.bot <- function(x, ...) {
   cat("bag of tables:\n")
-  cat(paste(names(x), collapse = ","), "\n")
+  cat(paste(names(x), collapse = ","), "\n\nd")
   cat(sprintf("active table is '%s'", active(x)), "\n")
-  cat(sprintf("join ramp order is '%s'", paste(jramp(x), collapse = ",")))
+  cat(sprintf("... and join ramp order is '%s'\n", paste(jramp(x), collapse = ",")))
   print(x[[active(x)]])
 
 }
