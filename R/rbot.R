@@ -1,6 +1,9 @@
+#' activate
+#' @export
 activate <- function(.data, what) {
   UseMethod('activate')
 }
+
 #' @export
 #' @importFrom rlang enquo quo_text
 activate.bot <- function(.data, what) {
@@ -25,11 +28,13 @@ active <- function(x) {
   attr(x, 'active') <- value
   x
 }
-
+#' bag of tables
+#'
+#' @export
 bot <- function(x, ...) {
   UseMethod("bot")
 }
-
+#' @export
 bot.default <- function(x, ...) {
   nms <- names(x)
   if (length(nms) < 1 | any(nchar(nms) < 1L)) stop("all list items must be named")
@@ -38,18 +43,20 @@ bot.default <- function(x, ...) {
   out <- structure(x, class = "bot", jramp = nms)
   activate(out, nms[1])
 }
+#' @export
 bot.PATH <- function(x, ...) {
   bot(x[attr(x, "join_ramp")])
 }
 print.bot <- function(x, ...) {
   cat("bag of tables:\n")
-  cat(paste(names(x), collapse = ","), "\n\nd")
+  cat(paste(names(x), collapse = ","), "\n\n")
   cat(sprintf("active table is '%s'", active(x)), "\n")
   cat(sprintf("... and join ramp order is '%s'\n", paste(jramp(x), collapse = ",")))
   print(x[[active(x)]])
 
 }
 #' @importFrom dplyr filter
+#' @export
 filter.bot <- function(x, ..., tables = NULL) {
  act <- active(x)
  if (is.null(tables)) tables <- jramp(x)
