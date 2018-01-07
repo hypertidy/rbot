@@ -3,6 +3,7 @@
 S3method(activate,bot)
 S3method(bot,PATH)
 S3method(bot,default)
+S3method(print,bot)
 export(activate)
 export(active)
 export(bot)

@@ -47,6 +47,8 @@ bot.default <- function(x, ...) {
 bot.PATH <- function(x, ...) {
   bot(x[attr(x, "join_ramp")])
 }
+#' @rdname bot
+#' @export
 print.bot <- function(x, ...) {
   cat("bag of tables:\n")
   cat(paste(names(x), collapse = ","), "\n\n")

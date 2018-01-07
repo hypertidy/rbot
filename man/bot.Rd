@@ -2,9 +2,12 @@
 % Please edit documentation in R/rbot.R
 \name{bot}
 \alias{bot}
+\alias{print.bot}
 \title{bag of tables}
 \usage{
 bot(x, ...)
+
+\method{print}{bot}(x, ...)
 }
 \description{
 bag of tables
